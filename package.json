@@ -1,0 +1,27 @@
+{
+    "name": "turbo",
+    "repository": "https://github.com/vercel/examples.git",
+    "license": "MIT",
+    "packageManager": "pnpm@9.5.0",
+    "private": true,
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "scripts": {
+        "build": "turbo run build",
+        "dev": "turbo run dev",
+        "start": "turbo run start",
+        "lint": "turbo run lint",
+        "dev:web": "turbo run dev --filter=web",
+        "dev:app": "turbo run dev --filter=app"
+    },
+    "devDependencies": {
+        "eslint": "^8.28.0",
+        "eslint-config-turbo": "latest",
+        "turbo": "^2.0.6"
+    },
+    "volta": {
+        "node": "20.15.0"
+    }
+}
