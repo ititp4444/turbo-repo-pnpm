@@ -1,6 +1,8 @@
 import React, { FC } from 'react'
 import type { Metadata } from 'next'
+import Header from '@pcm/ui/layout'
 import Name from '../../../features/name/components/Name'
+
 async function getPageData(id?: string) {
     try {
         // const num = Math.floor(Math.random() * (150 - 1) + 1)
@@ -24,6 +26,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     const poke = await getPageData(params.id)
     return (
         <>
+            <Header />
             <div>
                 <h1>web SSR page</h1>
                 <p>{poke?.name}</p>
