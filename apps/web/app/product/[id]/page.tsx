@@ -5,8 +5,12 @@ import Name from '../../../features/name/components/Name'
 
 async function getPageData(id?: string) {
     try {
-        // const num = Math.floor(Math.random() * (150 - 1) + 1)
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`, { next: { revalidate: 3600 } })
+        //ISR
+        // const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`, { next: { revalidate: 10 } })
+        //SSR
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`, { cache: 'no-store' })
+        //SSG
+        // const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`, { next: { revalidate: 10 } })
         const result = await res.json()
         return result
     } catch (e) {
